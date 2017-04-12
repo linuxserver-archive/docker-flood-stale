@@ -40,7 +40,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 
 
 
-* `-p 1234` - the port(s)
+* `-p 3000` - the port(s)
 * `-v /config` - where flood should store it's config files
 * `-v /downloads` - path to your downloads folder
 * `-e PGID` for GroupID - see below for explanation
