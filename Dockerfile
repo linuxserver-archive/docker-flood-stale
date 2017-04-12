@@ -13,7 +13,7 @@ RUN \
 	tar && \
 
 # install runtime packages
-apk add --no-cache \
+ apk add --no-cache \
 	nodejs \
 	rtorrent \
 	screen && \
@@ -27,7 +27,7 @@ apk add --no-cache \
  tar xf \
  /tmp/flood.tar.gz -C \
 	/app/flood --strip-components=1 && \
-cd /app/flood && \
+ cd /app/flood && \
  npm install --production && \
 
 # configure flood
