@@ -1,0 +1,23 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+	/config{/flood,/log/rtorrent,/rtorrent/rtorrent_sess} \
+	/downloads{/incoming,/watched}
+
+# copy config
+[[ ! -e /config/rtorrent/rtorrent.rc ]] && \
+	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
+
+# delete lock file if exists
+[[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
+	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
+
+# permissions
+chown abc:abc \
+	/downloads \
+	/downloads{/incoming,/watched}
+
+chown -R abc:abc \
+	/app \
+	/config

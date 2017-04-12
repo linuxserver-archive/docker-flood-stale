@@ -1,0 +1,34 @@
+# Where rTorrent saves the downloaded files
+directory = /downloads/incoming 
+# schedule = watch_directory_1,5,5,"load.start=/downloads/watched/*.torrent"
+schedule = low_diskspace,5,60,close_low_diskspace=100M
+
+# Where rTorrent saves the session
+session = /config/rtorrent/rtorrent_sess
+ 
+log.open_file = "rtorrent", /config/log/rtorrent/rtorrent.log
+log.add_output = "info", "rtorrent"
+
+# Which ports rTorrent can use (Make sure to open them in your router)
+bind = 0.0.0.0
+port_range = 50000-50000
+port_random = no
+ 
+# Check the hash after the end of the download
+check_hash = yes
+ 
+# Enable DHT (for torrents without trackers)
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+ 
+# Authorize UDP trackers
+use_udp_trackers = yes
+ 
+# Enable encryption when possible
+encryption = allow_incoming,try_outgoing,enable_retry
+ 
+# SCGI port, used to communicate with Flood
+scgi_port = 127.0.0.1:5000
+
+encoding_list = UTF-8
