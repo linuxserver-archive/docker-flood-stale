@@ -6,17 +6,28 @@ ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-# install packages
+# install build packages
 RUN \
- apk add --no-cache \
-	git \
+ apk add --no-cache --virtual=build-dependencies \
+	curl \
+	tar && \
+
+# install runtime packages
+apk add --no-cache \
 	nodejs \
 	rtorrent \
 	screen && \
 
 # install flood
- git clone https://github.com/jfurrow/flood.git /app/flood && \
- cd /app/flood && \
+ mkdir -p \
+	/app/flood && \
+ curl -o \
+ /tmp/flood.tar.gz -L \
+	https://github.com/jfurrow/flood/archive/master.tar.gz && \
+ tar xf \
+ /tmp/flood.tar.gz -C \
+	/app/flood --strip-components=1 && \
+cd /app/flood && \
  npm install --production && \
 
 # configure flood
@@ -26,6 +37,8 @@ RUN \
 	/app/flood/config.js && \
 
 # clean up
+ apk del --purge \
+	build-dependencies && \
  rm -rf \
 	/root \
 	/tmp/* && \
