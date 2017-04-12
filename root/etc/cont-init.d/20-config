@@ -11,6 +11,8 @@ mkdir -p \
 [[ ! -e /config/flood/config.js ]] && \
 	cp /app/flood/config.js /config/flood/config.js
 
+cp  /config/flood/config.js /app/flood/config.js
+
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \
 	rm /config/rtorrent/rtorrent_sess/rtorrent.lock
