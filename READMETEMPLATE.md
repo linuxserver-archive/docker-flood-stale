@@ -15,7 +15,9 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 # linuxserver/flood
 [![](https://images.microbadger.com/badges/version/linuxserver/flood.svg)](https://microbadger.com/images/linuxserver/flood "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/flood.svg)](http://microbadger.com/images/linuxserver/flood "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/flood.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/flood.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-flood)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-flood/)
 
-[![flood]()][appurl]
+[Flood][appurl], a modern web UI for rTorrent with a Node.js backend and React frontend.
+
+[![flood](https://s3.amazonaws.com/johnfurrow.com/share/flood-screenshot-a-0606.png)][appurl]
 
 ## Usage
 
