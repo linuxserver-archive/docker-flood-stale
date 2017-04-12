@@ -2,12 +2,14 @@
 
 # make folders
 mkdir -p \
-	/config{/flood,/log/rtorrent,/rtorrent/rtorrent_sess} \
+	/config{/flood/db,/log/rtorrent,/rtorrent/rtorrent_sess} \
 	/downloads{/incoming,/watched}
 
 # copy config
 [[ ! -e /config/rtorrent/rtorrent.rc ]] && \
 	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
+[[ ! -e /config/flood/config.js ]] && \
+	cp /app/flood/config.js /config/flood/config.js
 
 # delete lock file if exists
 [[ -e /config/rtorrent/rtorrent_sess/rtorrent.lock ]] && \

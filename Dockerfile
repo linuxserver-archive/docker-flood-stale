@@ -22,7 +22,7 @@ RUN \
 # configure flood
  cp /app/flood/config.template.js /app/flood/config.js && \
  sed -i \
-	"s#dbPath: './server/db/',#dbPath: '/config/flood/',#" \
+	"s#dbPath: './server/db/',#dbPath: '/config/flood/db/',#" \
 	/app/flood/config.js && \
 
 # clean up
