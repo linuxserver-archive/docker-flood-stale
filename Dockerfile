@@ -33,13 +33,13 @@ RUN \
  npm install --production && \
 
 # configure flood
- cp /app/flood/config.template.js /app/flood/config.js && \
+ cp /app/flood/config.docker.js /app/flood/config.js && \
  sed -i \
 	-e "s#dbPath: '.*',#dbPath: '/config/flood/db/',#" \
 	-e "s#sslKey: '.*',#sslKey: '/config/flood/flood_ssl.key',#" \
 	-e "s#sslCert: '.*'#sslCert: '/config/flood/flood_ssl.cert'#" \
 	-e "s#socketPath: '.*'#socketPath: '/config/rtorrent/rtorrent.sock'#" \
-	/app/flood/config.docker.js && \
+ /app/flood/config.js && \
 
 # clean up
  apk del --purge \
