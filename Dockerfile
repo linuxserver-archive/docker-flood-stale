@@ -21,9 +21,11 @@ RUN \
 # install flood
  mkdir -p \
 	/app/flood && \
+ flood_tag=$(curl -sX GET "https://api.github.com/repos/jfurrow/flood/releases/latest" \
+	| awk '/tag_name/{print $4;exit}' FS='[""]') && \
  curl -o \
  /tmp/flood.tar.gz -L \
-	https://github.com/jfurrow/flood/archive/master.tar.gz && \
+	"https://github.com/jfurrow/flood/archive/${flood_tag}.tar.gz" && \
  tar xf \
  /tmp/flood.tar.gz -C \
 	/app/flood --strip-components=1 && \
