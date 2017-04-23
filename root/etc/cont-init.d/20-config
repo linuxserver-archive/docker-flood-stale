@@ -9,7 +9,7 @@ mkdir -p \
 [[ ! -e /config/rtorrent/rtorrent.rc ]] && \
 	cp /defaults/rtorrent.rc /config/rtorrent/rtorrent.rc
 [[ ! -e /config/flood/config.js ]] && \
-	cp /app/flood/config.js /config/flood/config.js
+	cp /app/flood/config.docker.js /config/flood/config.js
 
 cp  /config/flood/config.js /app/flood/config.js
 
