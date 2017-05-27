@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.5
+FROM lsiobase/alpine:3.6
 MAINTAINER sparklyballs
 
 # set version label
@@ -14,7 +14,7 @@ RUN \
 
 # install runtime packages
  apk add --no-cache \
-	nodejs \
+	nodejs-npm \
 	rtorrent \
 	screen && \
 
