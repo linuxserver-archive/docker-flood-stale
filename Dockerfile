@@ -1,24 +1,22 @@
-FROM lsiobase/alpine:3.6
-MAINTAINER sparklyballs
+FROM lsiobase/alpine:3.7
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="sparklyballs"
 
-# install build packages
 RUN \
+ echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
 	curl \
 	tar && \
-
-# install runtime packages
+ echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	nodejs-npm \
 	rtorrent \
 	screen && \
-
-# install flood
+ echo "**** install flood ****" && \
  mkdir -p \
 	/app/flood && \
  flood_tag=$(curl -sX GET "https://api.github.com/repos/jfurrow/flood/releases/latest" \
@@ -31,8 +29,7 @@ RUN \
 	/app/flood --strip-components=1 && \
  cd /app/flood && \
  npm install --production && \
-
-# configure flood
+ echo "**** configure flood ****" && \
  cp /app/flood/config.docker.js /app/flood/config.js && \
  sed -i \
 	-e "s#dbPath: '.*',#dbPath: '/config/flood/db/',#" \
@@ -40,8 +37,7 @@ RUN \
 	-e "s#sslCert: '.*'#sslCert: '/config/flood/flood_ssl.cert'#" \
 	-e "s#socketPath: '.*'#socketPath: '/config/rtorrent/rtorrent.sock'#" \
  /app/flood/config.js && \
-
-# clean up
+ echo "**** clean up ****" && \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
