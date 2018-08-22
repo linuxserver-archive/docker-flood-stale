@@ -20,10 +20,6 @@ check_hash = yes
 # Enable DHT (for torrents without trackers)
 dht = auto
 dht_port = 6881
-peer_exchange = yes
- 
-# Authorize UDP trackers
-use_udp_trackers = yes
  
 # Enable encryption when possible
 encryption = allow_incoming,try_outgoing,enable_retry
